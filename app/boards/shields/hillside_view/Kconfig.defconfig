@@ -35,6 +35,9 @@ endif # ZMK_MOUSE
 
 if ZMK_DISPLAY
 
+config ZMK_DISPLAY_BLANK_ON_IDLE
+  default y
+
 config SPI
 	default y
 
