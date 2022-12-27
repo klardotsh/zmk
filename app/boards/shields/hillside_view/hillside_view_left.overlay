@@ -33,7 +33,7 @@
   sck-pin = <20>;
   mosi-pin = <17>;
   miso-pin = <25>; // not connected port because it is not used
-  cs-gpios = <&gpio0 22 GPIO_ACTIVE_LOW>;
+  cs-gpios = <&gpio0 22 GPIO_ACTIVE_HIGH>;
 };
 
 &nice_view {
