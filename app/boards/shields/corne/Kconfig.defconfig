@@ -1,4 +1,4 @@
-if SHIELD_CORNE_LEFT
+if SHIELD_CORNE_RIGHT
 
 config ZMK_KEYBOARD_NAME
 	default "Corne"
@@ -13,18 +13,28 @@ if SHIELD_CORNE_LEFT || SHIELD_CORNE_RIGHT
 config ZMK_SPLIT
 	default y
 
+config ZMK_DISPLAY
+	select LVGL_FONT_MONTSERRAT_26
+
 if ZMK_DISPLAY
 
-config I2C
+config SPI
 	default y
 
-config SSD1306
+config LS0XX
 	default y
 
-config SSD1306_REVERSE_MODE
-	default y
+config ZMK_WIDGET_WPM_STATUS
+	default y if !ZMK_SPLIT || ZMK_SPLIT_ROLE_CENTRAL
 
 endif # ZMK_DISPLAY
+
+if ZMK_MOUSE
+
+config SPI
+  default y
+
+endif # ZMK_MOUSE
 
 if LVGL
 

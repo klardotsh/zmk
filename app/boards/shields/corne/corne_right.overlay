@@ -11,6 +11,13 @@
 };
 
 &kscan0 {
+  row-gpios
+    = <&gpio1 1 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+    , <&pro_micro 5 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+    , <&pro_micro 6 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+    , <&pro_micro 7 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+    ;
+
 	col-gpios
 		= <&pro_micro 14 GPIO_ACTIVE_HIGH>
 		, <&pro_micro 15 GPIO_ACTIVE_HIGH>
@@ -20,3 +27,18 @@
 		, <&pro_micro 21 GPIO_ACTIVE_HIGH>
 		;
 };
+
+// trackball bus
+&spi0 {
+  status = "okay";
+  sck-pin = <20>;
+  mosi-pin = <17>;
+  miso-pin = <17>; // same as mosi (3-wire spi)
+  cs-gpios = <&gpio0 8 GPIO_ACTIVE_LOW>;
+};
+
+&trackball {
+  status = "okay";
+  irq-gpios = <&gpio0 22 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+};
+
