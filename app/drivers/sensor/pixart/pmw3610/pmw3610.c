@@ -905,7 +905,7 @@ static int pmw3610_sample_fetch(const struct device *dev, enum sensor_channel ch
 			data->x = x;
 			data->y = -y;
 		} else if (IS_ENABLED(CONFIG_PMW3610_ORIENTATION_270)) {
-			data->x = -y;
+			data->x = y;
 			data->y = x;
 		}
 
