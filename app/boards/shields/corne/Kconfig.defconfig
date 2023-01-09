@@ -6,11 +6,15 @@ config ZMK_KEYBOARD_NAME
 config ZMK_SPLIT_ROLE_CENTRAL
 	default y
 
+
 endif
 
 if SHIELD_CORNE_LEFT || SHIELD_CORNE_RIGHT
 
 config ZMK_SPLIT
+	default y
+
+config ZMK_USB
 	default y
 
 config ZMK_DISPLAY
